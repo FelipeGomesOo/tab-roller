@@ -1,0 +1,144 @@
+
+body {
+  color: $TextColor;
+  font-size: 16px;
+  line-height: 1.5;
+  font-family: "Poppins", "Helvetica", sans-serif;
+}
+
+/* TÍTULOS */
+h1,
+.titulo-01 {
+  font-size: 5.25rem;
+  font-weight: 700;
+  line-height: 1;
+  margin: 1.875rem 0;
+}
+h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 4rem 0 2rem 0;
+}
+h3 {
+  font-size: 1.375rem;
+  font-weight: 400;
+  margin-bottom: 1.375rem;
+}
+h4 {
+  opacity: 0.5; 
+} 
+
+p, ul, dl, ol {
+  font-size: 1rem;
+  margin:  0 0 1rem 0;
+}
+li ul {
+  margin-bottom: 0;
+  padding-left: 1rem;
+  list-style-type: disc;
+}
+p a {
+  display: inline;
+}  
+figcaption {
+  margin-bottom: 0.937rem;
+  opacity: 0.5;
+  font-size: 0.75rem;
+}
+a {
+  color: inherit;
+  transition: all 0.2s ease-in-out 0s;
+} 
+.small-caps {
+  font-size: 0.75rem;
+  font-weight: bold;
+}
+strong, b {
+  font-weight: bold;
+}  
+small {
+  font-size: 80%;
+  opacity: 0.6;
+} 
+img {
+  max-width: 100%;
+  height: auto;
+  -ms-interpolation-mode: bicubic;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/* Mobile  */
+@media print, screen and (max-width: 40em) {
+  h1,
+  .titulo-01 {
+    font-size: 2rem;
+    margin: 0.5rem 0 1rem 0;
+  }
+  h2 {
+    font-size: 1.5rem;
+    margin: 1.875rem 0 1rem 0;
+  }
+  h3 {
+    font-size: 1.125rem;
+  }
+  h3 + h3 {
+    margin-top: -0.875rem;
+  }
+}
+
+/* Tablet  */
+@media print, screen and (min-width: 40em) and (max-width: 64em) {
+  h1,
+  .titulo-01 {
+    font-size: 3.125rem;
+    margin: 1rem 0;
+  }
+  h2 {
+    font-size: 2rem;
+    margin: 1.875rem 0 1rem 0;
+  }
+  h3 {
+    font-size: 1.3rem;
+  }
+}
+
+.inline_link {
+  display: inline-block;
+  font-size: inherit;
+  cursor: pointer;
+  background-image: -webkit-linear-gradient(
+    rgba(83, 86, 90, 0.4) 75%,
+    rgba(83, 86, 90, 0.4) 75%
+  );
+  background-image: -o-linear-gradient(
+    rgba(83, 86, 90, 0.4) 75%,
+    rgba(83, 86, 90, 0.4) 75%
+  );
+  background-image: linear-gradient(
+    rgba(83, 86, 90, 0.4) 75%,
+    rgba(83, 86, 90, 0.4) 75%
+  );
+  background-repeat: repeat-x;
+  background-size: 2px 2px;
+  background-position: 0 98%;
+}
+.inline_link:hover {
+  color: $PrimaryColor !important;
+  background-image: -webkit-linear-gradient(
+    rgba(0, 196, 216, 1) 75%,
+    rgba(0, 196, 216, 1) 75%
+  );
+  background-image: -o-linear-gradient(
+    rgba(0, 196, 216, 1) 75%,
+    rgba(0, 196, 216, 1) 75%
+  );
+  background-image: linear-gradient(
+    rgba(0, 196, 216, 1) 75%,
+    rgba(0, 196, 216, 1) 75%
+  );
+}
+.inline_link + .inline_link {
+  margin-left: 0.5rem;
+}
+

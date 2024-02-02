@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 26 37">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+      }
+    </style>
+  </defs>
+  <g id="pause" transform="translate(-45 -680)">
+    <rect id="Retângulo_37" data-name="Retângulo 37" class="cls-1" width="10" height="37" rx="3" transform="translate(45 680)"/>
+    <rect id="Retângulo_38" data-name="Retângulo 38" class="cls-1" width="10" height="37" rx="3" transform="translate(61 680)"/>
+  </g>
+</svg>

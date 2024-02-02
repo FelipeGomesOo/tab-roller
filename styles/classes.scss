@@ -1,0 +1,25 @@
+/* Colors  */ 
+$PrimaryColor:#00aa13; 
+$SecondaryColor:#00c1da;
+$AccentColor:#0cbc56; 
+$BackgroundColor:#ebebeb;
+$TextColor: #53565a;
+$LinkColor: #00c1da;
+$ErrorColor: #ce0058;
+$SuccessColor: #00aa13;
+$WarningColor: #f6be00; 
+$NeutralColor: #434343;
+
+.mg-0 {margin:0!important;}
+.pd-0 {padding:0!important;}
+.hide {display:none;}
+.block {display: block;}
+.inline-block {display: inline-block; }
+.text-center{text-align:center;}
+.relative {position: relative;}
+
+.shadow {
+  -webkit-box-shadow: 0px 0px 10px 0px rgba(95,95,95,0.19);
+  -moz-box-shadow: 0px 0px 10px 0px rgba(95,95,95,0.19);
+  box-shadow: 0px 0px 10px 0px rgba(95,95,95,0.19);
+}

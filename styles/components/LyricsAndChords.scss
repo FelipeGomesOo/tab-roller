@@ -1,0 +1,14 @@
+.LyricsAndChords{
+    display: flex;  
+    gap: 4vw; 
+    
+  padding-top: 25.1svh;
+    .line {
+      position: fixed;
+      top:25%;
+      left: 0;
+      width: 100%;
+      height: 0;
+      border: $AccentColor 1px solid;
+    }
+  }

@@ -1,0 +1,14 @@
+.LyricsList{
+  position: fixed;
+  bottom: 0;
+  height: 100svh;
+  padding-top:25svh ;
+  overflow: scroll;
+  z-index: 1;
+  width: 75%;  
+  &::-webkit-scrollbar {
+    display: none;  
+  } 
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent; 
+}
