@@ -8,27 +8,61 @@ datasource db {
   directUrl = env("POSTGRES_URL_NON_POOLING")
 }
 
-model Post {
-  id        Int      @id @default(autoincrement())
-  title     String   @db.VarChar(255)
-  createdAt DateTime @default(now()) @db.Timestamp(6)
-  content   String?
-  published Boolean  @default(false)
-  authorId  Int
-  User      User     @relation(fields: [authorId], references: [id], onDelete: NoAction, onUpdate: NoAction)
-}
-
-model Profile {
-  id     Int     @id @default(autoincrement())
-  bio    String?
-  userId Int     @unique
-  User   User    @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction)
-}
-
 model User {
-  id      Int      @id @default(autoincrement())
-  name    String?  @db.VarChar(255)
-  email   String   @unique @db.VarChar(255)
-  Post    Post[]
-  Profile Profile?
+  id           Int    @id @default(autoincrement())
+  name         String @db.VarChar(256)
+  email        String @unique @db.VarChar(256)
+  SongCreated  Song[] @relation("SongCreatedBy")
+  SongUpdated  Song[] @relation("SongUpdatedBy")
 }
+
+model Artist {
+  id     Int     @id @default(autoincrement())
+  name   String  @db.VarChar(256)
+  Album  Album[]
+  Song   Song[]
+}
+
+model Album {
+  id       Int     @id @default(autoincrement())
+  name     String  @db.VarChar(256)
+  artistId Int
+  Artist   Artist  @relation(fields: [artistId], references: [id])
+  Song     Song[]
+}
+
+model Song {
+  id           Int        @id @default(autoincrement())
+  name         String
+  artistId     Int
+  albumId      Int
+  bpm          Int	      @db.SmallInt
+  notesPerBar  Int 	      @db.SmallInt
+  createdAt    DateTime   @default(now())
+  updatedAt    DateTime   @default(now())
+  createdBy    Int
+  updatedBy    Int
+  Artist       Artist     @relation(fields: [artistId], references: [id])
+  Album        Album      @relation(fields: [albumId], references: [id])
+  CreatedBy    User       @relation("SongCreatedBy", fields: [createdBy], references: [id])
+  UpdatedBy    User       @relation("SongUpdatedBy", fields: [updatedBy], references: [id])
+  SongChord    SongChord[]
+  SongLyric    SongLyric[]
+}
+
+model SongChord {
+  id       Int    @id @default(autoincrement())
+  chord    String
+  duration Int
+  songId   Int    @map("song_id")
+  Song     Song   @relation(fields: [songId], references: [id])
+}
+
+model SongLyric {
+  id       Int    @id @default(autoincrement())
+  lyric    String
+  duration Int
+  songId   Int    @map("song_id")
+  Song     Song   @relation(fields: [songId], references: [id])
+}
+
