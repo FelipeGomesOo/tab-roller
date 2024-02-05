@@ -2,7 +2,7 @@
 import { useState, useEffect } from 'react';
 import LyricsTimeline from '@/app/components/songPage/LyricsTimeline';  
 import ChordsList from '@/app/components/songPage/ChordsList';  
-import { Song } from '@/app/data/definitions';
+import { Song } from '@/app/lib/definitions';
 
 export default function SongScroller(
   {song, setCurrentChord, setCurrentLyric, animation}: 

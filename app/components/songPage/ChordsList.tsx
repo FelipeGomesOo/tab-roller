@@ -3,7 +3,7 @@ import { useState, useEffect, useRef } from 'react';
 import { getTime, getMiliseconds, getPercentage } from '@/scripts/helperFunctions';
 import Chord from '@/app/components/songPage/Chord'
 import { animate } from "framer-motion"
-import {Chords} from '@/app/data/definitions';
+import {Chords} from '@/app/lib/definitions';
 
 export default function ChordsList(
     {chords, setCurrentChord, noteHeight, animation} : 

@@ -1,6 +1,6 @@
 'use client';
 import Lyric from '@/app/components/songPage/Lyric';
-import { Lyrics } from '@/app/data/definitions';
+import { Lyrics } from '@/app/lib/definitions';
 import { useEffect, useRef, useState } from "react";    
 
 export default function LyricsList(

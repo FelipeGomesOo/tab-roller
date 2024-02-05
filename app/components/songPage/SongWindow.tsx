@@ -4,7 +4,7 @@ import SongScroller from '@/app/components/songPage/SongScroller';
 import CurrentChord from '@/app/components/songPage/CurrentChord';
 import LyricsList from '@/app/components/songPage/LyricsList';
 import Controls from '@/app/components/songPage/Controls';  
-import SongData from '@/app/data/SongData';  
+import SongData from '@/app/lib/data/SongData';  
 import {  animate } from "framer-motion";
 
 const {chords, lyrics, duration} = SongData; 

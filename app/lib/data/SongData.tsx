@@ -1,6 +1,6 @@
 import {getProcessedChords, getSongDuration, getProcessedLyrics} from '@/scripts/helperFunctions';
-import chordsArray from '@/app/data/chords';  
-import lyricsArray from '@/app/data/lyrics';  
+import chordsArray from '@/app/lib/data/chords';  
+import lyricsArray from '@/app/lib/data/lyrics';  
 
 const bpm = 74;
 const notesPerBar = 4;
