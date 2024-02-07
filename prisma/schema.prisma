@@ -3,66 +3,41 @@ generator client {
 }
 
 datasource db {
-  provider  = "postgresql"
-  url       = env("POSTGRES_PRISMA_URL")
-  directUrl = env("POSTGRES_URL_NON_POOLING")
+  provider = "postgresql"
+  url      = env("POSTGRES_PRISMA_URL")
 }
 
 model User {
-  id           Int    @id @default(autoincrement())
-  name         String @db.VarChar(256)
-  email        String @unique @db.VarChar(256)
-  SongCreated  Song[] @relation("SongCreatedBy")
-  SongUpdated  Song[] @relation("SongUpdatedBy")
+  id          Int    @id @default(autoincrement())
+  name        String @db.VarChar(256)
+  email       String @unique @db.VarChar(256)
+  password    String @db.VarChar(256)
+  SongCreated Song[] @relation("SongCreatedBy")
+  SongUpdated Song[] @relation("SongUpdatedBy")
 }
 
 model Artist {
-  id     Int     @id @default(autoincrement())
-  name   String  @db.VarChar(256)
-  Album  Album[]
-  Song   Song[]
-}
-
-model Album {
-  id       Int     @id @default(autoincrement())
-  name     String  @db.VarChar(256)
-  artistId Int
-  Artist   Artist  @relation(fields: [artistId], references: [id])
-  Song     Song[]
+  id    Int    @id @default(autoincrement())
+  name  String @db.VarChar(256)
+  songs Song[]
+  views Int    @default(0)
 }
 
 model Song {
-  id           Int        @id @default(autoincrement())
-  name         String
-  artistId     Int
-  albumId      Int
-  bpm          Int	      @db.SmallInt
-  notesPerBar  Int 	      @db.SmallInt
-  createdAt    DateTime   @default(now())
-  updatedAt    DateTime   @default(now())
-  createdBy    Int
-  updatedBy    Int
-  Artist       Artist     @relation(fields: [artistId], references: [id])
-  Album        Album      @relation(fields: [albumId], references: [id])
-  CreatedBy    User       @relation("SongCreatedBy", fields: [createdBy], references: [id])
-  UpdatedBy    User       @relation("SongUpdatedBy", fields: [updatedBy], references: [id])
-  SongChord    SongChord[]
-  SongLyric    SongLyric[]
+  id          Int      @id @default(autoincrement())
+  name        String
+  artistId    Int
+  bpm         Int      @default(60) @db.SmallInt
+  notesPerBar Int      @default(4) @db.SmallInt
+  key         String   @db.VarChar(5)
+  chords      String
+  lyrics      String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @default(now())
+  createdBy   Int
+  updatedBy   Int
+  views       Int      @default(0)
+  Artist      Artist   @relation(fields: [artistId], references: [id])
+  CreatedBy   User     @relation("SongCreatedBy", fields: [createdBy], references: [id])
+  UpdatedBy   User     @relation("SongUpdatedBy", fields: [updatedBy], references: [id])
 }
-
-model SongChord {
-  id       Int    @id @default(autoincrement())
-  chord    String
-  duration Int
-  songId   Int    @map("song_id")
-  Song     Song   @relation(fields: [songId], references: [id])
-}
-
-model SongLyric {
-  id       Int    @id @default(autoincrement())
-  lyric    String
-  duration Int
-  songId   Int    @map("song_id")
-  Song     Song   @relation(fields: [songId], references: [id])
-}
-

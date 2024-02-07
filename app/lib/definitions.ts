@@ -13,6 +13,7 @@ export type Lyrics = {
     outTime: number
 }
 export type Song = {
+    id: string;
     bpm: number,
     notes: number,
     bars: number,
@@ -22,4 +23,10 @@ export type Song = {
     barDuration: number,
     noteDuration: number,
     duration: number
+}
+
+export type Artist = {
+    id: number,
+    name: string,
+    views: number
 }

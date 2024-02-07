@@ -1,16 +1,16 @@
-.Controls{
+.Controls {
   position: fixed;
-  bottom:5svh;
-  left:5svh;  
+  bottom: 5svh;
+  left: 5svh;
   z-index: 9;
   button {
     background-color: $AccentColor;
     border: none;
-    width: 6rem; 
-    height: 6rem;  
+    width: 6rem;
+    height: 6rem;
     border-radius: 100%;
     color: #fff;
-    display:flex;
+    display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
@@ -19,7 +19,6 @@
     }
   }
   &.Pause {
-    opacity: 0.5;   
+    opacity: 0.5;
   }
 }
- 
