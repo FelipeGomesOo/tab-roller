@@ -13,6 +13,7 @@ export default function CreateSongForm({artists} : {artists: Artist[]}) {
   const songNameProps = useFormInput({ initialValue: "" });
   const bpmProps = useFormInput({ initialValue: 60 });
   const notesPerBarProps = useFormInput({ initialValue: 4 });
+  const keyProps = useFormInput({ initialValue: "C" });
 
   return (
     <form action={createSong}>
@@ -31,6 +32,10 @@ export default function CreateSongForm({artists} : {artists: Artist[]}) {
       <div className="input">
         <label>notesPerBar</label><br />
         <input type="text" name="notesPerBar" id="notesPerBar" {...notesPerBarProps} />
+      </div>
+      <div className="input">
+        <label>Key</label><br />
+        <input type="text" name="key" id="key" {...keyProps} />
       </div>
       <br /> <br /> <hr /> <br />
 

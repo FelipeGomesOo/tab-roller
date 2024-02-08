@@ -1,14 +1,48 @@
 'use server';
- 
+import { z } from 'zod';
+import prisma from '@/prisma/prisma';
+import { revalidatePath } from 'next/cache';
+import { redirect } from 'next/navigation';
+
+const CreateSong = z.object({
+    userId: z.coerce.number() ,
+    artistId: z.coerce.number(),
+    songName: z.string(),
+    bpm: z.coerce.number(),
+    notesPerBar: z.coerce.number(),
+    key: z.string(),
+    ChordInput: z.string(),
+    LyricsInput: z.string(),
+  });
+    
+
 export async function createSong(formData: FormData) {
-    const rawFormData = {
-        userId: formData.get('userId'),
-        artistId: formData.get('artistId'),
-        songName: formData.get('songName'), 
-        bpm: formData.get('bpm'),
-        notesPerBar: formData.get('notesPerBar'),
-        ChordInput: formData.get('ChordInput'), 
-        LyricsInput: formData.get('LyricsInput'),     
-    }; 
-    console.log(rawFormData);
+    const { userId, artistId, songName, bpm, notesPerBar, key, ChordInput, LyricsInput } = CreateSong.parse({
+            userId: formData.get('userId'),
+            artistId: formData.get('artistId'),
+            songName: formData.get('songName'), 
+            bpm: formData.get('bpm'),
+            notesPerBar: formData.get('notesPerBar'),
+            key: formData.get('key'),
+            ChordInput: formData.get('ChordInput'), 
+            LyricsInput: formData.get('LyricsInput'),     
+    }); 
+    await prisma.song.create({
+        data: {
+            name: songName,
+            artistId: artistId,
+            bpm: bpm,
+            notesPerBar:notesPerBar ,
+            key: key,
+            chords:ChordInput ,
+            lyrics:LyricsInput ,
+            createdBy: userId,
+            updatedBy: userId, 
+        },
+      })
+
+      revalidatePath('/song');
+      redirect('/song');
+      
+
 }
