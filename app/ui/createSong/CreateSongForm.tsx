@@ -1,11 +1,11 @@
 'use client';
 import Link from 'next/link'; 
 import { useState } from 'react';
-import { Button } from '@/app/components/button';
+import { Button } from '@/app/ui/button';
 import { createSong } from '@/app/lib/actions'; 
 import { Artist } from '@/app/lib/definitions'; 
-import InputBlockLoop from '@/app/components/createSong/InputBlockLoop';
-import SelectArtists from '@/app/components/createSong/SelectArtists';
+import InputBlockLoop from '@/app/ui/createSong/InputBlockLoop';
+import SelectArtists from '@/app/ui/createSong/SelectArtists';
 import { useFormInput } from '@/app/lib/hooks';
 
 export default function CreateSongForm({artists} : {artists: Artist[]}) {

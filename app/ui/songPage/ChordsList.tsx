@@ -1,7 +1,7 @@
 'use client';  
 import { useState, useEffect, useRef } from 'react';
 import { getTime, getMiliseconds, getPercentage } from '@/scripts/helperFunctions';
-import Chord from '@/app/components/songPage/Chord'
+import Chord from '@/app/ui/songPage/Chord'
 import { animate } from "framer-motion"
 import {Chords} from '@/app/lib/definitions';
 

@@ -2,7 +2,7 @@
 import { useFormState, useFormStatus } from 'react-dom';
 import { authenticate } from '@/app/lib/actions';
 import { useFormInput } from '@/app/lib/hooks';
-import { Button } from '@/app/components/button'; 
+import { Button } from '@/app/ui/button'; 
 import {User} from '@/app/lib/definitions';
 export default function LoginForm({theUser} : {theUser: User}) {
  

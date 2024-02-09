@@ -1,5 +1,5 @@
 'use client';
-import Lyric from '@/app/components/songPage/Lyric';
+import Lyric from '@/app/ui/songPage/Lyric';
 import { Lyrics } from '@/app/lib/definitions';
 import { useEffect, useRef, useState } from "react";    
 
