@@ -43,8 +43,8 @@ export async function createSong(formData: FormData) {
         },
       })
 
-      revalidatePath('/song');
-      redirect('/song');
+      revalidatePath('/');
+      redirect('/');
       
 
 }
