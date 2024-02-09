@@ -1,29 +1,8 @@
-"use client"
-import { useState } from 'react';
+import LoginForm from "@/app/components/login/LoginForm";
+import { getUserByEmail } from '@/app/lib/data';
 
-export default function LoginPage() {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    //onLogin(username, password);
-  };
-
+export default async function  LoginPage() {
+  const theUser = await getUserByEmail('contato@felipe-gomes.com')
   return (
-    <form onSubmit={(e) => handleSubmit(e)} >
-      <label> Username: </label>
-        <input
-          type="text"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-        />
-      <label> Password:</label>
-        <input
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-      <input type="submit" value="Login" />
-    </form>
+    <LoginForm theUser={theUser}/>
 )};

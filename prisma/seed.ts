@@ -1,17 +1,19 @@
 import { PrismaClient } from '@prisma/client'
+import bcrypt from 'bcrypt'
 
 const prisma = new PrismaClient()
 
-async function mainsss() {
+async function main() {
+    const hashedPassword = await bcrypt.hash("asdEflk458ee!!", 10);
     const createdUser = await prisma.user.create({
         data: {
             name: "Felipe", 
-            email: "contato@felipe-gomes.com",
-            password: "KMRmrjAEB6z!"  
+            email: "felipe@felipe-gomes.com",
+            password: hashedPassword 
         },
       })
 }
-async function main() {
+async function mainaaaa() {
   const artists = [
     { name: "The Beatles", hits: ["Yesterday", "Hey Jude", "Let It Be"] },
     { name: "Madonna", hits: ["Like a Prayer", "Like a Virgin", "La Isla Bonita"] },
