@@ -1,10 +1,10 @@
 'use client';
 import { useState, useEffect, useRef } from 'react';
-import SongScroller from '@/app/ui/songPage/SongScroller';  
-import CurrentChord from '@/app/ui/songPage/CurrentChord';
-import LyricsList from '@/app/ui/songPage/LyricsList';
-import Controls from '@/app/ui/songPage/Controls';  
-import SongData from '@/app/lib/data/SongData';  
+import SongScroller from '@/components/songPage/SongScroller';  
+import CurrentChord from '@/components/songPage/CurrentChord';
+import LyricsList from '@/components/songPage/LyricsList';
+import Controls from '@/components/songPage/Controls';  
+import SongData from '@/lib/SongData';  
 import {  animate } from "framer-motion";
 
 const {chords, lyrics, duration} = SongData; 

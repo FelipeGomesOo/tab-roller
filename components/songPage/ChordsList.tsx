@@ -1,9 +1,9 @@
 'use client';  
 import { useState, useEffect, useRef } from 'react';
 import { getTime, getMiliseconds, getPercentage } from '@/scripts/helperFunctions';
-import Chord from '@/app/ui/songPage/Chord'
+import Chord from '@/components/songPage/Chord'
 import { animate } from "framer-motion"
-import {Chords} from '@/app/lib/definitions';
+import {Chords} from '@/lib/definitions';
 
 export default function ChordsList(
     {chords, setCurrentChord, noteHeight, animation} : 

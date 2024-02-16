@@ -1,8 +1,8 @@
 'use client';
 import { useState, useEffect } from 'react';
-import LyricsTimeline from '@/app/ui/songPage/LyricsTimeline';  
-import ChordsList from '@/app/ui/songPage/ChordsList';  
-import { Song } from '@/app/lib/definitions';
+import LyricsTimeline from '@/components/songPage/LyricsTimeline';  
+import ChordsList from '@/components/songPage/ChordsList';  
+import { Song } from '@/lib/definitions';
 
 export default function SongScroller(
   {song, setCurrentChord, setCurrentLyric, animation}: 

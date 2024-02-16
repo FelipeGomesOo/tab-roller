@@ -1,6 +1,6 @@
 'use client';  
-import LyricDuration from '@/app/ui/songPage/LyricDuration';
-import { Lyrics } from '@/app/lib/definitions';
+import LyricDuration from '@/components/songPage/LyricDuration';
+import { Lyrics } from '@/lib/definitions';
 export default function LyricsTimeline(
   {lyrics, noteHeight, setCurrentLyric} : 
   {lyrics: Lyrics[], noteHeight: number, setCurrentLyric: any}) 

@@ -1,4 +1,4 @@
-import { Artist } from "@/app/lib/definitions"
+import { Artist } from "@/lib/definitions"
 export default function CreateSongForm({artists} : {artists: Artist[]}) {
 
     const artistList = artists.map((artist, index) => { 

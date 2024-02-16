@@ -1,5 +1,5 @@
-import CreateSongForm from '@/app/ui/createSong/CreateSongForm';
-import {getArtists} from '@/app/lib/data';
+import CreateSongForm from '@/components/createSong/CreateSongForm';
+import {getArtists} from '@/lib/data';
 
 export default async function CreateSongPage() { 
   let artists = await getArtists();

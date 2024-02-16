@@ -1,5 +1,5 @@
 'use client';   
-import { Song } from '@/app/lib/definitions';
+import { Song } from '@/lib/definitions';
 import { getTime, getMiliseconds, getPercentage } from '@/scripts/helperFunctions';
 
 export default function Info({song}:{song: Song}) {

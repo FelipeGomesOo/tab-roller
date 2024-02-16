@@ -1,6 +1,7 @@
 import type { Metadata } from 'next' 
-import '/styles/styles.scss'; 
-import { Header } from './ui/Header';
+//import '/styles/styles.scss'; 
+import './globals.css'
+import { Header } from '../components/Header';
 
 export const metadata: Metadata = {
   title: 'Tab Roller',
@@ -15,7 +16,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <Header /> 
+        <Header />  
         {children}
       </body>
     </html>
