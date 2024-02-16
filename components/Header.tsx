@@ -15,7 +15,9 @@
 
     return (
       <header className="px-3 flex justify-between items-center border-b absolute top-0 bg-white w-full h-16">
-        <h1 className="text-xl font-bold text-black">Tab Roller</h1>  
+        <Link href={"/"} className="hover:text-sky-500" prefetch={false}>
+          <h1 className="text-xl font-bold text-black">Tab Roller</h1>  
+        </Link>
         <nav>
             { user ? loggedIn : loggedOut }
         </nav>
