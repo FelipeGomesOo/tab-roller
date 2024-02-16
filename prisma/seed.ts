@@ -1,9 +1,10 @@
 import { PrismaClient } from '@prisma/client'
 import bcrypt from 'bcrypt'
+import {createUrl} from '@/scripts/helperFunctions'
 
 const prisma = new PrismaClient()
 
-async function main() {
+async function maiaan() {
     const hashedPassword = await bcrypt.hash("asdEflk458ee!!", 10);
     const createdUser = await prisma.user.create({
         data: {
@@ -13,7 +14,7 @@ async function main() {
         },
       })
 }
-async function mainaaaa() {
+async function main() {
   const artists = [
     { name: "The Beatles", hits: ["Yesterday", "Hey Jude", "Let It Be"] },
     { name: "Madonna", hits: ["Like a Prayer", "Like a Virgin", "La Isla Bonita"] },
@@ -38,7 +39,8 @@ async function mainaaaa() {
     )) 
     const createdArtist = await prisma.artist.create({
       data: {
-        name: artist.name
+        name: artist.name, 
+        url: createUrl(artist.name),
 
       },
     })

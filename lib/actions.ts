@@ -5,6 +5,7 @@ import { revalidatePath } from 'next/cache';
 import { redirect } from 'next/navigation';
 import { signIn } from '@/auth';
 import { AuthError } from 'next-auth';
+import { createUrl } from '@/scripts/helperFunctions';
 
 const CreateSong = z.object({
     userId: z.coerce.number() ,
@@ -33,6 +34,7 @@ export async function createSong(formData: FormData) {
         data: {
             name: songName,
             artistId: artistId,
+            url: createUrl(songName),
             bpm: bpm,
             notesPerBar:notesPerBar ,
             key: key,
@@ -45,8 +47,6 @@ export async function createSong(formData: FormData) {
 
       revalidatePath('/');
       redirect('/');
-      
-
 }
 
 

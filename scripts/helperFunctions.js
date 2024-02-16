@@ -52,4 +52,13 @@ const getProcessedLyrics = (lyrics, noteDuration) => {
 const getSongDuration = (chords) => {
     return (chords.reduce((acc, chord) => acc + chord.duration, 0));
 }
-export {getTime, getMiliseconds, getPercentage, getProcessedChords, getSongDuration, getProcessedLyrics}
+
+const createUrl = (str) => {
+    return str
+      .trim() 
+      .toLowerCase() 
+      .replace(/[^a-z0-9 ]/g, "") 
+      .replace(/\s+/g, "-");
+  }
+
+export {getTime, getMiliseconds, getPercentage, getProcessedChords, getSongDuration, getProcessedLyrics, createUrl}
