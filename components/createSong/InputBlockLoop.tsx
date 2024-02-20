@@ -1,6 +1,7 @@
 'use client'; 
 import { useState } from 'react'; 
 import InputBlock from './InputBlock';
+import { Button } from '@/components/ui/button';
 
 export default function InputBlockLoop({type}: {type: string}) {
     const defaultValue = {prop: '', duration: '4'};
@@ -13,8 +14,7 @@ export default function InputBlockLoop({type}: {type: string}) {
     }
     
     const inputToString = inputs.map(item => `"${item.prop}","${item.duration}"`).join('; ');
-    //const inputToString = "Testando!";
-    console.log(inputToString, "asdasd")
+    console.log(inputToString)
   return (
     <>
         {
@@ -29,7 +29,7 @@ export default function InputBlockLoop({type}: {type: string}) {
                 />
             )) 
         } 
-        <button onClick={(e) => handleClick(e)}>Add item</button>
+        <Button variant="secondary" onClick={(e) => handleClick(e)}>Add item</Button>
         <input 
             type="hidden" 
             name={`${type}Input`} 

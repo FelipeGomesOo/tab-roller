@@ -2,59 +2,81 @@
 import Link from 'next/link'; 
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input'; 
+import { Label } from '@/components/ui/label';
+import { Card, CardContent, CardHeader, CardDescription, CardTitle } from '@/components/ui/card';
 import { createSong } from '@/lib/actions'; 
 import { Artist } from '@/lib/definitions'; 
 import InputBlockLoop from '@/components/createSong/InputBlockLoop';
 import SelectArtists from '@/components/createSong/SelectArtists';
 import { useFormInput } from '@/lib/hooks';
+import SelectKeys from '@/components/createSong/KeyList';
 
-export default function CreateSongForm({artists} : {artists: Artist[]}) {
-
-  const songNameProps = useFormInput({ initialValue: "" });
-  const bpmProps = useFormInput({ initialValue: 60 });
-  const notesPerBarProps = useFormInput({ initialValue: 4 });
-  const keyProps = useFormInput({ initialValue: "C" });
+export default function CreateSongForm({artists, userId} : {artists: Artist[], userId: number}) {
 
   return (
-    <form action={createSong}>
+      <form action={createSong}>
+        <div className="flex gap-4">
+          <Card className='flex-1'>
+            <CardHeader>
+              <CardTitle>Song Details</CardTitle> 
+            </CardHeader>
+            <CardContent>
+            <div className="grid w-full items-center gap-4">
+              <SelectArtists artists={artists}  />
+              <input type="hidden" name="userId" id="userId" value={userId} />
+              
+              <div className="">
+                <Label htmlFor="songName">Song Name</Label>
+                <Input type="text" name="songName" id="songName" />
+              </div>
+            
+              <div className="">
+                <Label htmlFor="bpm">BPM</Label>
+                <Input type="text" name="bpm" id="bpm" placeholder="60" />
+              </div>
+            
+              <div className="">
+                <Label htmlFor="notesPerBar">Notes Per Bar</Label>
+                <Input type="text" name="notesPerBar" id="notesPerBar" placeholder="4" />
+              </div>
+            
+              <div className="">
+                <Label>Key</Label>
+                <SelectKeys />
+              </div>
+              </div>
+            </CardContent>
+          </Card> 
 
-      <SelectArtists artists={artists}  />
-      <input type="hidden" name="userId" id="userId" value="1" />
- 
-      <div className="input">
-        <label>Song Name</label><br />
-        <input type="text" name="songName" id="songName" {...songNameProps} />
-      </div>  
-      <div className="input">
-        <label>bpm</label><br />
-        <input type="text" name="bpm" id="bpm" {...bpmProps} />
-      </div>  
-      <div className="input">
-        <label>notesPerBar</label><br />
-        <input type="text" name="notesPerBar" id="notesPerBar" {...notesPerBarProps} />
-      </div>
-      <div className="input">
-        <label>Key</label><br />
-        <input type="text" name="key" id="key" {...keyProps} />
-      </div>
-      <br /> <br /> <hr /> <br />
+          <Card className='flex-1'>
+            <CardHeader>
+              <CardTitle className='flex justify-between'>
+                <span>Chords</span>
+                <span>Duration</span>
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <InputBlockLoop type="Chord"/>  
+            </CardContent>
+          </Card>
+          <Card className='flex-1'>
+            <CardHeader>
+              <CardTitle className='flex justify-between'>
+                <span>Lyrics</span>
+                <span>Duration</span>
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <InputBlockLoop type="Lyrics"/>
+            </CardContent>
+          </Card>
+        </div>
+        <div className="w-full mt-4">
+          {/* <Link href="/" className="">Cancel</Link> */}
+          <Button type="submit">Create Song</Button>
+        </div>
 
-      <h3>Chords</h3>
-      <InputBlockLoop type="Chord"/> 
-      <br /> <br /> <hr /> <br />
-
-      <h3>Lyrics</h3>
-      <InputBlockLoop type="Lyrics"/>  
-
-      <br /> <br /> <hr /> <br />
-
-      
-
-      <div className="">
-        {/* <Link href="/" className="">Cancel</Link> */}
-        <Button type="submit">Create Song</Button>
-      </div>
-
-    </form>
+      </form> 
   );
 }

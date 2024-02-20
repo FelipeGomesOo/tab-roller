@@ -1,7 +1,25 @@
 import prisma from '@/prisma/prisma'
 
 export const getArtists = async () => {
-    const query = await prisma.artist.findMany()
+    const query = await prisma.artist.findMany(
+        {
+            orderBy: {
+                views: 'desc'
+            },
+            take: 5,
+        }
+    )
+    return query;
+}
+
+export const getArtist = async (artistUrl : string) => {
+    const query = await prisma.artist.findUnique(
+        {
+            where: {
+                url: artistUrl
+            }
+        }
+    )
     return query;
 }
 

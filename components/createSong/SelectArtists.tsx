@@ -1,11 +1,25 @@
 import { Artist } from "@/lib/definitions"
-export default function CreateSongForm({artists} : {artists: Artist[]}) {
+import {
+    Select,
+    SelectContent,
+    SelectItem,
+    SelectTrigger,
+    SelectValue,
+  } from "@/components/ui/select"
+  
+export default function SelectArtist({artists} : {artists: Artist[]}) {
 
     const artistList = artists.map((artist, index) => { 
-        return <option key={index} value={artist.id}>{artist.name}</option>
+        return <SelectItem key={index} value={artist.id.toString()}>{artist.name}</SelectItem>
     })
     return (
-        <select name="artistId" id="artistId">
-            {artistList}
-        </select>
+        <Select name="artistId"  >
+            <SelectTrigger className="w-[180px]">
+                <SelectValue placeholder="Artists" />
+            </SelectTrigger>
+            <SelectContent> 
+                {artistList}
+            </SelectContent>
+            
+        </Select>
 )}

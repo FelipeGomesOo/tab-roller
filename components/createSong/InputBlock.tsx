@@ -1,4 +1,5 @@
 'use client';  
+import { Input } from "@/components/ui/input";
 
 type Item = {
   [key: string]: string | null;
@@ -18,20 +19,20 @@ export default function InputBlock(
   };
 
   return (
-    <div className="InputBlock">
-      <input 
-        className={type}
+    <div className="InputBlock flex gap-2 mb-2">
+      <Input 
+        className={`w-80 ${type}`}
         type="text" 
         name={`${type}${index}`} 
         id={`${type}${index}`}
         value={item.prop ?? ''}
         onChange={e => handleChange(index, 'prop', e.target.value)}
       />
-      <input 
-        className='duration' 
+      <Input 
+        className='duration w-20'  
         type="text" 
-        name={`duration${index}`} 
-        id={`duration${index}`} 
+        name={`duration${type}${index}`} 
+        id={`duration${type}${index}`} 
         value={item.duration}
         onChange={e => handleChange(index, 'duration', e.target.value)}
       />
