@@ -27,7 +27,7 @@ model Artist {
 model Song {
   id          Int      @id @default(autoincrement())
   name        String
-  url         String   @unique @db.VarChar(256)
+  url         String   @db.VarChar(256)
   artistId    Int
   bpm         Int      @default(60) @db.SmallInt
   notesPerBar Int      @default(4) @db.SmallInt
