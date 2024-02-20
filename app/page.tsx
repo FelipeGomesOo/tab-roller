@@ -16,7 +16,7 @@ export default async function Home() {
                 <ul>
                   {artists.map((artist) => (
                     <li key={artist.id}>
-                      <Link href={`/${artist.id}`}>
+                      <Link href={`/${artist.url}`}>
                         {artist.name}
                       </Link>
                     </li>
