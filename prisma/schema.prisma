@@ -31,7 +31,7 @@ model Song {
   artistId    Int
   bpm         Int      @default(60) @db.SmallInt
   notesPerBar Int      @default(4) @db.SmallInt
-  key         String   @db.VarChar(5)
+  key         String   @db.VarChar(10)
   chords      String
   lyrics      String
   createdAt   DateTime @default(now())

@@ -13,40 +13,43 @@ const CreateSong = z.object({
     songName: z.string(),
     bpm: z.coerce.number(),
     notesPerBar: z.coerce.number(),
-    key: z.string(),
+    songKey: z.string(),
     ChordInput: z.string(),
     LyricsInput: z.string(),
   });
     
 
 export async function createSong(formData: FormData) {
-    const { userId, artistId, songName, bpm, notesPerBar, key, ChordInput, LyricsInput } = CreateSong.parse({
+    const { userId, artistId, songName, bpm, notesPerBar, songKey, ChordInput, LyricsInput } = CreateSong.parse({
             userId: formData.get('userId'),
             artistId: formData.get('artistId'),
             songName: formData.get('songName'), 
             bpm: formData.get('bpm'),
             notesPerBar: formData.get('notesPerBar'),
-            key: formData.get('key'),
+            songKey: formData.get('songKey'),
             ChordInput: formData.get('ChordInput'), 
             LyricsInput: formData.get('LyricsInput'),     
-    }); 
-    await prisma.song.create({
+    });
+
+    console.log(`userId: ${userId} , artistId: ${artistId} , songName: ${songName} , bpm: ${bpm} , notesPerBar: ${notesPerBar} , key: ${songKey} , ChordInput: ${ChordInput} , LyricsInput: ${LyricsInput} , url: ${createUrl(songName)}`);
+
+    const createdSong = await prisma.song.create({
         data: {
-            name: songName,
-            artistId: artistId,
-            url: createUrl(songName),
-            bpm: bpm,
-            notesPerBar:notesPerBar ,
-            key: key,
-            chords:ChordInput ,
-            lyrics:LyricsInput ,
-            createdBy: userId,
-            updatedBy: userId, 
+          name: songName,
+          artistId: artistId,
+          url: createUrl(songName),
+          bpm: bpm,
+          notesPerBar:notesPerBar,
+          key: songKey,
+          chords:ChordInput,
+          lyrics:LyricsInput,
+          createdBy: userId,
+          updatedBy: userId, 
         },
-      })
+      }) 
 
       revalidatePath('/');
-      redirect('/');
+      redirect('/');  
 }
 
 
