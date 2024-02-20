@@ -12,11 +12,22 @@ export const getArtists = async () => {
     return query;
 }
 
-export const getArtist = async (artistUrl : string) => {
+export const getArtistByUrl = async (artistUrl : string) => {
     const query = await prisma.artist.findUnique(
         {
             where: {
                 url: artistUrl
+            }
+        }
+    )
+    return query;
+}
+
+export const getSongsByArtist = async (artistId : number) => {
+    const query = await prisma.song.findMany(
+        {
+            where: {
+                artistId: artistId
             }
         }
     )
