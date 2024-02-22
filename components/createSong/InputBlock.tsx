@@ -21,7 +21,7 @@ export default function InputBlock(
   return (
     <div className="InputBlock flex gap-2 mb-2">
       <Input 
-        className={`w-80 ${type}`}
+        className={` ${type}`}
         type="text" 
         name={`${type}${index}`} 
         id={`${type}${index}`}

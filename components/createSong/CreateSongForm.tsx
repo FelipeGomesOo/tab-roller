@@ -16,8 +16,8 @@ export default function CreateSongForm({artists, userId} : {artists: Artist[], u
 
   return (
       <form action={createSong}>
-        <div className="flex gap-4">
-          <Card className='flex-1'>
+        <div className="flex gap-4 flex-wrap">
+          <Card className='flex-auto  '>
             <CardHeader>
               <CardTitle>Song Details</CardTitle> 
             </CardHeader>
@@ -49,7 +49,7 @@ export default function CreateSongForm({artists, userId} : {artists: Artist[], u
             </CardContent>
           </Card> 
 
-          <Card className='flex-1'>
+          <Card className='flex-auto '>
             <CardHeader>
               <CardTitle className='flex justify-between'>
                 <span>Chords</span>
@@ -60,7 +60,7 @@ export default function CreateSongForm({artists, userId} : {artists: Artist[], u
               <InputBlockLoop type="Chord"/>  
             </CardContent>
           </Card>
-          <Card className='flex-1'>
+          <Card className='flex-auto'>
             <CardHeader>
               <CardTitle className='flex justify-between'>
                 <span>Lyrics</span>

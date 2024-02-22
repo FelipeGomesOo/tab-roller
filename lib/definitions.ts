@@ -14,15 +14,24 @@ export type Lyrics = {
 }
 export type Song = {
     id: string;
+    name: string;
     bpm: number,
-    notes: number,
+    notesPerBar: number,
     bars: number,
     chords: Chords[],
     lyrics: Lyrics[],
     barsPerMinute: number,
     barDuration: number,
     noteDuration: number,
-    duration: number
+    duration: number,  
+    url: string,
+    artistId: number,  
+    key: string, 
+    createdAt: Date,
+    updatedAt: Date,
+    createdBy: number,
+    updatedBy: number,
+    views: number,
 }
 
 export type Artist = {
