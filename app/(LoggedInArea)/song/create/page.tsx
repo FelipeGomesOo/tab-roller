@@ -11,8 +11,8 @@ export default async function CreateSongPage() {
   let userID = loggedUser?.id;
 
   return (
-    <div className=' pt-20'>
-      <div className="container mx-auto"> 
+    <div className='pt-20'>
+      <div className="container"> 
         <CreateSongForm artists={artists} userId={userID} /> 
       </div>
     </div>
