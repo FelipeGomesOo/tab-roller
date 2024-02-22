@@ -16,7 +16,9 @@ export default function Lyric(
             setScrollTo(lyricHeight);
         } 
     },[isCurrentLyric, lyricElement, setScrollTo]);
+
+    let isActive = `${isCurrentLyric ? 'opacity-100' : 'opacity-50'}`
      
     return (
-        <p ref={ref} className={`Lyric${isCurrentLyric ? ' active' : ''}`}>{phrase}</p> 
+        <p ref={ref} className={`${isActive}`}>{phrase}</p> 
 )}

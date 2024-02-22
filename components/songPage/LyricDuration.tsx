@@ -8,7 +8,7 @@ export default function LyricDuration(
 {  
     
     const ref = useRef<HTMLDivElement>(null);   
-    const InView = useInView(ref, { margin: "-25%  0px -75% 0px " });
+    const InView = useInView(ref, { margin: "-25.5%  0px -74.5% 0px ", amount: 0, once: false});
 
     const LyricDuration = {
         height: `${height}vh`
@@ -18,11 +18,12 @@ export default function LyricDuration(
             setCurrentLyric(index);
         }
     },[InView, setCurrentLyric, index])
+
     return (
         <div
-            ref={ref} 
-            className={`LyricDuration ${InView ? "active" : ""}`} 
-            style={LyricDuration} 
+            ref={ref}  
+            style={LyricDuration}
+            className={`${InView && "inview"}`} 
         >
                 &nbsp;
         </div> 

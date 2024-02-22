@@ -7,7 +7,7 @@ export default function LyricsTimeline(
 {
 
   return(
-    <div className="LyricsTimeline"> 
+    <div id="LyricsTimeline" className='opacity-0'> 
             {lyrics.map((lyric, index) => (
                 <LyricDuration 
                   key={index} 

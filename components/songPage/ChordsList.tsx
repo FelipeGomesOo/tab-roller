@@ -11,7 +11,7 @@ export default function ChordsList(
 {
     
   return (
-    <div className="ChordsList" >
+    <div id="ChordsList" className='w-full text-center text-2xl font-extrabold text-neutral-foreground '>
          {chords.map((chord, index) => (
             <Chord 
                 key={index}  

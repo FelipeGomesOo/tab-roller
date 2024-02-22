@@ -7,8 +7,6 @@ export default function Chord(
     {inTime: number, height: number, chordName: string, setCurrentChord : any, animation: any}) {
     
     const ref = useRef<HTMLDivElement>(null);   
-    
-
     const isInView = useInView(ref, { margin: "-25.5%  0px -74.5% 0px ", amount: 0, once: false});
     
     useEffect(() => {
@@ -24,13 +22,16 @@ export default function Chord(
  
   return (
     <div  
-        ref={ref}
-        className={`Chord ${isInView ? "active" : ""}`}
-        id={`chord${inTime}`}
+        ref={ref} 
+        className='relative'
         style={{ height: `${height}vh` }}
         onClick={() => handleClick()} 
     >
-        <span className="ChordName">{chordName}</span> 
-        <span className="ChordBar">&nbsp;</span> 
+        <span className={`${isInView && "opacity-0"} absolute right-8 top-0 bg-neutral rounded-2xl py-3 px-2 min-w-14 transition-all duration-400 ease-in-out`}>
+            {chordName}
+        </span> 
+        <span id="ChordBar" className={`${isInView ? "bg-primary" : "bg-neutral"}  h-full absolute w-4 rounded-xl right-0 transition-all duration-400 ease-in-out`}>
+            &nbsp;
+        </span> 
     </div>
 )}

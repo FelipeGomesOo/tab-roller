@@ -10,6 +10,9 @@ export default function LyricsList(
     const ref = useRef<HTMLDivElement>(null);  
     const [scrollTo, setScrollTo] = useState(0);
 
+    let offset = {
+        paddingTop:"25svh"
+      }
     //console.log(scrollTo, "scrollTo")
     useEffect(() => {
         const lyricsList = ref.current;
@@ -17,8 +20,9 @@ export default function LyricsList(
             lyricsList.scrollTop = scrollTo;  
         }
     }, [scrollTo])
+
     return (
-        <div className="LyricsList" ref={ref}>
+        <div id="LyricsList" style={offset} className="font-bold text-5xl fixed bottom-0 h-svh pl-5 overflow-y-scroll z-10 w-3/4 space-y-10" ref={ref}>
             {lyrics.map((lyric, index) => (
                 <Lyric 
                     key={index} 

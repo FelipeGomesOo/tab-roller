@@ -5,15 +5,18 @@ import ChordsList from '@/components/songPage/ChordsList';
 import { Song } from '@/lib/definitions';
 
 export default function SongScroller(
-  {song, setCurrentChord, setCurrentLyric, animation}: 
-  {song: Song, setCurrentChord: any, setCurrentLyric: any, animation: any}) 
+  {song, setCurrentChord, setCurrentLyric, animation, animationRef}: 
+  {song: Song, setCurrentChord: any, setCurrentLyric: any, animation: any, animationRef: any}) 
 {
 
   const [noteHeight, setNoteHeight] = useState(10);
+  const lyricandChords = {
+    paddingTop: "25svh",
+  }
    
   return(
-    <>
-      <div className="lyricChordContainer">
+    <div  id="SongScroller" ref={animationRef}>
+      <div className="flex" style={lyricandChords} >
         <LyricsTimeline 
           lyrics={song.lyrics} 
           noteHeight={noteHeight} 
@@ -26,5 +29,5 @@ export default function SongScroller(
           animation={animation}
         />
       </div> 
-    </>
+    </div> 
 )}

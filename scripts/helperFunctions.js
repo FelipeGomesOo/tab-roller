@@ -61,4 +61,29 @@ const createUrl = (str) => {
       .replace(/\s+/g, "-");
   }
 
-export {getTime, getMiliseconds, getPercentage, getProcessedChords, getSongDuration, getProcessedLyrics, createUrl}
+  const parseLyricsFromString = (string) => {
+    const lines = string.split(';');
+    const result = lines.map(line => {
+      const parts = line.split('","');
+      return {
+        phrase: parts[0].trim().replace(/"/g, ''),
+        duration: parts[1].trim().replace(/"/g, '')
+      };
+    });
+  
+    return result;
+  }
+  const parseChordsFromString = (string) => {
+    const lines = string.split(';');
+    const result = lines.map(line => {
+      const parts = line.split('","');
+      return {
+        name: parts[0].trim().replace(/"/g, ''),
+        duration: parts[1].trim().replace(/"/g, '')
+      };
+    });
+  
+    return result;
+  }
+
+export {getTime, getMiliseconds, getPercentage, getProcessedChords, getSongDuration, getProcessedLyrics, createUrl, parseLyricsFromString, parseChordsFromString}
