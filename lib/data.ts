@@ -34,6 +34,23 @@ export const getSongsByArtist = async (artistId : number) => {
     return query;
 }
 
+export const getArtistAndSong = async (artistUrl : string, songUrl : string) => {
+    const query = await prisma.artist.findUnique({
+        where: {
+            url: artistUrl
+        },
+        include: {
+            songs: {
+                where: {
+                url: songUrl
+                }
+            }
+        }
+    });
+    //console.log(query)
+    return query;
+}
+
 export const getUserByEmail = async (userMail: string) => {
     const query = await prisma.user.findUnique(
         {
@@ -42,6 +59,6 @@ export const getUserByEmail = async (userMail: string) => {
             }
         }
     )
-    console.log(query)
+    //console.log(query)
     return query;
 }
