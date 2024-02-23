@@ -1,22 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { animate } from "framer-motion";
 
-export function useFormInput({initialValue}: {initialValue: string | number}) {
-  const [value, setValue] = useState(initialValue);
-
-  function handleChange(e: any) {
-    setValue(e.target.value);
-  }
-
-  const inputProps = {
-    value: value,
-    onChange: handleChange
-  };
-
-  return inputProps;
-}
-
-export function useAnimation({duration}: {duration: number}) {
+export function useSongAnimation({duration}: {duration: number}) {
     const [animation, setAnimation] = useState<any>(null);
     const animationRef = useRef<any>();
 

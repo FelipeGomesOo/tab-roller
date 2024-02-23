@@ -9,7 +9,7 @@ import { createSong } from '@/lib/actions';
 import { Artist } from '@/lib/definitions'; 
 import InputBlockLoop from '@/components/createSong/InputBlockLoop';
 import SelectArtists from '@/components/createSong/SelectArtists';
-import { useFormInput } from '@/lib/hooks';
+import { useFormInput } from '@/lib/hooks/useFormInput';
 import SelectKeys from '@/components/createSong/KeyList';
 
 export default function CreateSongForm({artists, userId} : {artists: Artist[], userId: number}) {
